@@ -1,7 +1,3 @@
-## Put comments here that give an overall description of what your
-## functions do
-
-## Write a short comment describing this function
 ##
 ## These R functions are able to cache potentially time-consuming
 ## computations in matrix.
@@ -19,7 +15,6 @@
 ## a list of functions to operate input matrix, x.
 ###############################################################################
 makeCacheMatrix <- function(x = matrix()) {
-
   inv<-NULL
   set<-function(y) {
     if(!all(x == y)) {
@@ -34,8 +29,6 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
-
 ###############################################################################
 ## Description :
 ## Function "cachesolve" calculates the inverse of the special "matrix" created
@@ -45,12 +38,11 @@ makeCacheMatrix <- function(x = matrix()) {
 ## matrix and sets the inverse in the cache via the setinv function.
 ##
 ## Input :
-## x - a special "matrix" generate from function "makeCacheMatrix"
+## x - a list of functions return from function "makeCacheMatrix"
 ## Return :
 ## an inverse matrix
 ###############################################################################
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
 ## Return a matrix that is the inverse of 'x'
   inv<-x$getinv()
   if(!is.null(inv)) {
