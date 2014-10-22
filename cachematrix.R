@@ -56,10 +56,10 @@ makeCacheMatrix <- function(x = matrix()) {
 
   #######################################################################
   ## Description :
-  ## Function "getinv" is used to get value of inverse matrix "inv"
+  ## Function "getinv" is used to get value of inversed matrix "inv"
   ## 
   ## Return :
-  ## an inverse matrix
+  ## an inversed matrix
   #######################################################################
   getinv<-function() inv
 
@@ -82,14 +82,21 @@ makeCacheMatrix <- function(x = matrix()) {
 ## an inversed matrix
 ###############################################################################
 cacheSolve <- function(x, ...) {
-## Return a matrix that is the inverse of 'x'
+  # get inverse matrix
   inv<-x$getinv()
+  # check whether inverse matrix is null or not
   if(!is.null(inv)) {
+    # if not, it means that the inverse matrix already there.
     message("getting cached data")
+    # return the existed inverse matrix
     return(inv)
   }
+  # it means that inverse matrix is not calculated
   data <- x$get();
+  # calcuate inverse matrix
   inv<-solve(data,...)
+  # set inverse matrix
   x$setinv(inv)
+  # return inverse matrix
   inv  
 }
